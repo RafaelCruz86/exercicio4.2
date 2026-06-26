@@ -1,10 +1,14 @@
 import asyncio
 import json
+import sys
+from pathlib import Path
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
+SERVER = str(Path(__file__).parent / "servidor_mcp.py")
+
 async def main() -> dict:
-    params = StdioServerParameters(command="python", args=["servidor_mcp.py"])
+    params = StdioServerParameters(command=sys.executable, args=[SERVER])
     async with stdio_client(params) as (read, write):
         async with ClientSession(read, write) as session:
             await session.initialize()

@@ -38,6 +38,12 @@ python cliente_teste.py
 }
 ```
 
+## Validação
+
+```bash
+autograde validar 4.2
+```
+
 ## Decisões de implementação
 
 - Utilizado `FastMCP` da biblioteca `mcp` por oferecer decoradores simples para expor funções Python como tools MCP.
