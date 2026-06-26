@@ -1,5 +1,8 @@
+import logging
 import httpx
 from mcp.server.fastmcp import FastMCP
+
+logging.disable(logging.CRITICAL)
 
 API = "http://localhost:8000"
 mcp = FastMCP("tarefas-mcp")

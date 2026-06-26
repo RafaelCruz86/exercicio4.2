@@ -1,9 +1,12 @@
 import asyncio
 import json
+import logging
 import sys
 from pathlib import Path
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
+
+logging.disable(logging.CRITICAL)
 
 SERVER = str(Path(__file__).parent / "servidor_mcp.py")
 
@@ -23,4 +26,4 @@ async def main() -> dict:
             }
 
 if __name__ == "__main__":
-    print(json.dumps(asyncio.run(main())))
+    print(json.dumps(asyncio.run(main())), flush=True)
